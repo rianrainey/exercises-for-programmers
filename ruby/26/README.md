@@ -6,7 +6,7 @@ to find the correct formula. So while the code works, the answer is incorrect.
 ### Usage
 
 ```
-ruby 26-months-to-pay-off-credit-card.rb
+$ ruby 26-months-to-pay-off-credit-card.rb
 What is your credit card balance? 5000
 What is the APR on the card (as a percent)? 12
 What is the monthly payment you will make? 100
