@@ -1,29 +1,29 @@
 #!/usr/bin/ruby
 
 class PayOffCreditCard
-    def initialize(options={})
-        @balance = options[:balance]
-        @apr     = options[:apr]
-        @payment = options[:payment]
-    end
+  def initialize(options={})
+    @balance = options[:balance]
+    @apr     = options[:apr]
+    @payment = options[:payment]
+  end
 
-    def calculateMonthsUntilPaidOff
-        months = -(1.to_f/30)*(numerator.to_f/denominator)
-        print "It will take you #{months} months"
-    end
+  def calculateMonthsUntilPaidOff
+    months = -(1.to_f/30)*(numerator.to_f/denominator)
+    print "It will take you #{months} months"
+  end
 
-    private
-        def numerator
-            Math.log(1+(@balance.to_f/@payment)*(1-(1+daily_rate)**-30))
-        end
+  private
+  def numerator
+    Math.log(1+(@balance.to_f/@payment)*(1-(1+daily_rate)**-30))
+  end
 
-        def denominator
-            Math.log(1+daily_rate)
-        end
+  def denominator
+    Math.log(1+daily_rate)
+  end
 
-        def daily_rate
-            @apr.to_f/365
-        end
+  def daily_rate
+    @apr.to_f/365
+  end
 end
 
 print 'What is your credit card balance? '
