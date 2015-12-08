@@ -9,12 +9,12 @@ class PayOffCreditCard
 
   def calculateMonthsUntilPaidOff
     months = -(1.to_f/30)*(numerator.to_f/denominator)
-    print "It will take you #{months} months"
+    print "It will take you #{months.ceil} months"
   end
 
   private
   def numerator
-    Math.log(1+(@balance.to_f/@payment)*(1-(1+daily_rate)**-30))
+    Math.log(1+((@balance.to_f/@payment)*(1-(1+daily_rate)**30)))
   end
 
   def denominator
@@ -22,7 +22,7 @@ class PayOffCreditCard
   end
 
   def daily_rate
-    @apr.to_f/365
+    @apr.to_f/(100.0 * 365)
   end
 end
 
