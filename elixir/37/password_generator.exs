@@ -1,4 +1,3 @@
-require IEx
 # What's the minimum length? 8
 # How many special characters? 2
 # How many numbers? 2
