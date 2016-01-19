@@ -14,8 +14,7 @@ defmodule MovieRecommendations do
     IO.gets "Enter movie title: "
   end
 
-  def handle_response({ :ok,
-                        %HTTPoison.Response{body: body, headers: headers, status_code: 200}}) do
+  def handle_response({ :ok, %HTTPoison.Response{body: body, headers: headers, status_code: 200}}) do
     case Poison.decode body do
       { :ok, %{ "Error" => message, "Response" => "False" }} -> "Error: #{message}" # TODO: Don't know how much of this is necessary
       { :ok, movie }                                         -> movie
