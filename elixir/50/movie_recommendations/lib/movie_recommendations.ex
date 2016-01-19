@@ -17,24 +17,27 @@ defmodule MovieRecommendations do
   def handle_response({ :ok,
                         %HTTPoison.Response{body: body, headers: headers, status_code: 200}}) do
     case Poison.decode body do
-      { :ok, %{ "Error" => message, "Response" => "False" }} -> "Error: #{message}"
+      { :ok, %{ "Error" => message, "Response" => "False" }} -> "Error: #{message}" # TODO: Don't know how much of this is necessary
       { :ok, movie }                                         -> movie
     end
   end
 
   def pretty_print(movie) do
-    IO.puts "Title: #{Map.get(movie, "Title")}"
-    IO.puts "Year: #{Map.get(movie, "Year")}"
-    IO.puts "Rating: #{Map.get(movie, "imdbRating")}"
-    IO.puts "Running Time: #{Map.get(movie, "Runtime")}"
-    IO.puts "Description: #{Map.get(movie, "Plot")}"
+    # TODO: Move Movie out into it's own struct
+    IO.puts """
+    Title: #{Map.get(movie, "Title")}
+    Year: #{Map.get(movie, "Year")}
+    Rating: #{Map.get(movie, "imdbRating")}
+    Running Time: #{Map.get(movie, "Runtime")}
+    Description: #{Map.get(movie, "Plot")}
+    """
+    #{watch_recommendation(Map.get(movie, "imdbRating"))}
   end
 
   def movie_api_url(query) do
     "http://omdbapi.com/?t=#{String.strip(query)}"
   end
 
-  def watch_recommendation(_) do
-    "You should watch this movie right now!"
-  end
+  #def watch_recommendation(score) do
+  #end
 end
