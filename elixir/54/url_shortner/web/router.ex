@@ -16,7 +16,7 @@ defmodule UrlShortner.Router do
   scope "/", UrlShortner do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", UrlController, :index
   end
 
   # Other scopes may use custom stacks.
