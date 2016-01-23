@@ -1,4 +1,34 @@
+<%= require IEx %>
+
 <div class="jumbotron">
   <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
   <p class="lead">Enter your URL below</p>
 </div>
+
+<table class="table table-striped">
+  <th>Id</th>
+  <th>Short URL</th>
+  <th>Full URL</th>
+
+  <%= for u <- @urls do %>
+    <tr>
+      <td><%= u.id %></td>
+      <td><%= u.short_url %></td>
+      <td><%= u.full_url %></td>
+    </tr>
+  <% end %>
+</table>
+
+<form action="<%= url_path @conn, :create %>" method="post">
+  <input type="hidden" name="_csrf_token" value="<%= get_csrf_token() %>">
+
+  <div class="form-group">
+    <label for="url[full_url]">Full URL</label>
+    <input type="text" name="url[full_url]" class="form-control">
+
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<%= form_tag("/url", method: :post) %>
+  <%= tag(:button) %>
+</form>

@@ -18,6 +18,7 @@ Now you can visit [`lvh.me:4000`](http://lvh.me:4000) from your browser.
 - [] `/get/#short_url/stats` - show `short_url`, `full_url`, and `visit_count`
   - [] Show ip addresses and geographic locations
 - [] Log ip address of visitors
+- [] Save urls to user accounts
 - [] Extract url shortner logic to library? Or is that just one method?
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
