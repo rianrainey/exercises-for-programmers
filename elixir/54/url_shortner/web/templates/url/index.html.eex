@@ -1,7 +1,7 @@
 <%= require IEx %>
 
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
+  <h2><%= gettext "Welcome to the URL Shortner" %></h2>
   <p class="lead">Enter your URL below</p>
 </div>
 
@@ -28,7 +28,4 @@
 
   </div>
   <button class="btn btn-primary" type="submit">Submit</button>
-</form>
-<%= form_tag("/url", method: :post) %>
-  <%= tag(:button) %>
 </form>

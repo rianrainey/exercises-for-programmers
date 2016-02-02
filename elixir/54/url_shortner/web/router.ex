@@ -18,6 +18,7 @@ defmodule UrlShortner.Router do
 
     get "/", UrlController, :index
     post "/", UrlController, :create
+    get "/:shortened_url", UrlController, :show
   end
 
   # Other scopes may use custom stacks.

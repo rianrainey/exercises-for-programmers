@@ -15,4 +15,16 @@ defmodule UrlShortner.UrlTest do
     changeset = Url.changeset(%Url{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "encode converts base10 to base62" do
+    to_encode = 125
+    result = "cb"
+    assert Url.encode(to_encode) == result
+  end
+
+  test "decode converts base62 to base10" do
+    to_decode = "cb"
+    result = 125
+    assert Url.decode(to_decode) == result
+  end
 end

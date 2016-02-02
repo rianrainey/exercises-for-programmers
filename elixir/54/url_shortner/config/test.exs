@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :url_shortner, UrlShortner.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "rrainey",
+  password: "",
   database: "url_shortner_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
